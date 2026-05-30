@@ -14,6 +14,7 @@ private:
     string description;
     string status;
     int priority;
+    string assignedUser;
 
     vector<Comment> comments;
 
@@ -24,6 +25,7 @@ public:
         this->description = description;
         this->priority = priority;
         this->status = "NEW";
+        this->assignedUser = "Unassigned";
     }
 
     void changeStatus(string newStatus) {
@@ -34,12 +36,28 @@ public:
         comments.push_back(comment);
     }
 
+    void assignTo(string userName) {
+        assignedUser = userName;
+    }
+
+    string getAssignedUser() {
+        return assignedUser;
+    }
+
     string getTitle() {
         return title;
     }
 
     string getStatus() {
         return status;
+    }
+
+    int getPriority() {
+        return priority;
+    }
+
+    vector<Comment>& getComments() {
+        return comments;
     }
 };
 
